@@ -1,6 +1,7 @@
 import React, { useReducer, useEffect } from 'react';
 import BlogList from './components/blogList';
-import Input from './components/Input';
+import Search from './components/Search';
+import Wrapper from './components/Wrapper'
 import getProcessedPosts from './helpers/getPosts'
 import reducer from './reducer'
 
@@ -20,12 +21,12 @@ const App = () => {
 
   return ( 
     <MyContext.Provider value={dispatch}>
-      <div>
-        <Input />
+      <Wrapper>
+        <Search />
 
 
         {posts.length ? <BlogList posts={posts}/> : <p>Нет постов</p>}
-      </div>
+      </Wrapper>
     </MyContext.Provider>
    );
 }

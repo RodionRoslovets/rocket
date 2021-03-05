@@ -1,25 +1,19 @@
-import React from 'react';
+import React from 'react'
+import BlogItem from './blogListItem'
 
 const BlogList = ({posts}) => {
-    let postsItems = posts.map(post=>(
-        <li key={post.post.id}>
-            <div>
-                <p>
-                    <span>{post.user.name} </span>
-                    <span>{post.user.username}</span>
-                </p>
-                <p>
-                    <span>{post.user.email}</span>
-                </p>
-            </div>
-
-            <div>
-                <p>{post.post.title}</p>
-                <p>{post.post.body}</p>
-            </div>
-            
-        </li>
-    ))
+    let postsItems = posts.map(post=>{
+        return (
+            <BlogItem 
+                key={post.post.id} 
+                name={post.user.name}
+                username={post.user.username}
+                email={post.user.email}
+                title={post.post.title}
+                body={post.post.body}>
+            </BlogItem>
+        )
+    })
     return ( 
         <ul>
             {postsItems}
